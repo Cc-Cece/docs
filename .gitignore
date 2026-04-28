@@ -28,3 +28,5 @@ yarn-error.log*
 # IDE / editor
 .idea/
 .vscode-test/
+.old/
+Docusaurus-Markdown-Showcase.mdx
