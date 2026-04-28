@@ -1,4 +1,4 @@
-import {themes as prismThemes} from 'prism-react-renderer';
+﻿import {themes as prismThemes} from 'prism-react-renderer';
 import type {Config} from '@docusaurus/types';
 import type * as Preset from '@docusaurus/preset-classic';
 import { docusaurusVersion } from '@generated/site-metadata';
@@ -6,15 +6,17 @@ import { docusaurusVersion } from '@generated/site-metadata';
 // This runs in Node.js - Don't use client-side code here (browser APIs, JSX...)
 
 const repository = process.env.GITHUB_REPOSITORY ?? '';
-const repositoryOwner = process.env.GITHUB_REPOSITORY_OWNER ?? 'your-github-username';
-const repositoryName = repository.split('/')[1] ?? 'my-docs';
+const repositoryOwner = process.env.GITHUB_REPOSITORY_OWNER ?? 'Cc-Cece';
+const repositoryName = repository.split('/')[1] ?? 'docs';
 const isUserOrOrgPagesRepo = repositoryName.endsWith('.github.io');
 const githubPagesUrl = `https://${repositoryOwner}.github.io`;
 const githubPagesBaseUrl = isUserOrOrgPagesRepo ? '/' : `/${repositoryName}/`;
+const currentLocale = process.env.DOCUSAURUS_CURRENT_LOCALE ?? 'zh-CN';
+const isZh = currentLocale === 'zh-CN';
 
 const config: Config = {
-  title: "Cc-Cece's Documentations",
-  tagline: "Welcome to Cc-Cece's Documentations!",
+  title: "Cc-Cece's Docs",
+  tagline: 'Projects, notes, and technical documentation by Cc-Cece.',
   favicon: 'img/favicon.ico',
 
   // Future flags, see https://docusaurus.io/docs/api/docusaurus-config#future
@@ -53,7 +55,7 @@ const config: Config = {
           // Please change this to your repo.
           // Remove this to remove the "edit this page" links.
           editUrl:
-            'https://github.com/facebook/docusaurus/tree/main/packages/create-docusaurus/templates/shared/',
+            'https://github.com/Cc-Cece/docs/tree/main/',
         },
         blog: {
           showReadingTime: true,
@@ -64,7 +66,7 @@ const config: Config = {
           // Please change this to your repo.
           // Remove this to remove the "edit this page" links.
           editUrl:
-            'https://github.com/facebook/docusaurus/tree/main/packages/create-docusaurus/templates/shared/',
+            'https://github.com/Cc-Cece/docs/tree/main/',
           // Useful options to enforce blogging best practices
           onInlineTags: 'warn',
           onInlineAuthors: 'warn',
@@ -84,9 +86,9 @@ const config: Config = {
       respectPrefersColorScheme: true,
     },
     navbar: {
-      title: "Cc-Cece's Documentations",
+      title: "Cc-Cece's Docs",
       logo: {
-        alt: "Cc-Cece's Documentations Logo",
+        alt: "Cc-Cece's Docs Logo",
         src: "img/logo.svg",
       },
       items: [
@@ -94,15 +96,15 @@ const config: Config = {
           type: 'docSidebar',
           sidebarId: 'tutorialSidebar',
           position: 'left',
-          label: 'Tutorial',
+          label: isZh ? '文档' : 'Docs',
         },
-        {to: '/blog', label: 'Blog', position: 'left'},
+        {to: '/blog', label: isZh ? '博客' : 'Blog', position: 'left'},
         {
           type: 'localeDropdown',
           position: 'right',
         },
         {
-          href: 'https://github.com/facebook/docusaurus',
+          href: 'https://github.com/Cc-Cece',
           label: 'GitHub',
           position: 'right',
         },
@@ -112,16 +114,16 @@ const config: Config = {
       style: 'dark',
       links: [
         {
-          title: 'Docs',
+          title: isZh ? '文档' : 'Docs',
           items: [
             {
-              label: 'Tutorial',
+              label: isZh ? '快速开始' : 'Getting Started',
               to: '/intro',
             },
           ],
         },
         {
-          title: 'Community',
+          title: isZh ? '社区' : 'Community',
           items: [
             {
               label: 'Stack Overflow',
@@ -138,20 +140,20 @@ const config: Config = {
           ],
         },
         {
-          title: 'More',
+          title: isZh ? '更多' : 'More',
           items: [
             {
-              label: 'Blog',
+              label: isZh ? '博客' : 'Blog',
               to: '/blog',
             },
             {
               label: 'GitHub',
-              href: 'https://github.com/facebook/docusaurus',
+              href: 'https://github.com/Cc-Cece',
             },
           ],
         },
       ],
-      copyright: `Copyright © ${new Date().getFullYear()} My Project, Inc. Built with Docusaurus.`,
+      copyright: `Copyright © ${new Date().getFullYear()} Cc-Cece`,
     },
     prism: {
       theme: prismThemes.github,
@@ -161,3 +163,4 @@ const config: Config = {
 };
 
 export default config;
+

@@ -1,6 +1,7 @@
-import type {ReactNode} from 'react';
+﻿import type {ReactNode} from 'react';
 import clsx from 'clsx';
 import Heading from '@theme/Heading';
+import useDocusaurusContext from '@docusaurus/useDocusaurusContext';
 import styles from './styles.module.css';
 
 type FeatureItem = {
@@ -9,38 +10,49 @@ type FeatureItem = {
   description: ReactNode;
 };
 
-const FeatureList: FeatureItem[] = [
-  {
-    title: 'Easy to Use',
-    Svg: require('@site/static/img/undraw_docusaurus_mountain.svg').default,
-    description: (
-      <>
-        Docusaurus was designed from the ground up to be easily installed and
-        used to get your website up and running quickly.
-      </>
-    ),
-  },
-  {
-    title: 'Focus on What Matters',
-    Svg: require('@site/static/img/undraw_docusaurus_tree.svg').default,
-    description: (
-      <>
-        Docusaurus lets you focus on your docs, and we&apos;ll do the chores. Go
-        ahead and move your docs into the <code>docs</code> directory.
-      </>
-    ),
-  },
-  {
-    title: 'Powered by React',
-    Svg: require('@site/static/img/undraw_docusaurus_react.svg').default,
-    description: (
-      <>
-        Extend or customize your website layout by reusing React. Docusaurus can
-        be extended while reusing the same header and footer.
-      </>
-    ),
-  },
-];
+function getFeatureList(isZh: boolean): FeatureItem[] {
+  return [
+    {
+      title: isZh ? '项目文档集中管理' : 'Centralized Project Docs',
+      Svg: require('@site/static/img/undraw_docusaurus_mountain.svg').default,
+      description: isZh ? (
+        <>
+          统一维护各个项目的使用说明、部署记录和开发笔记，避免信息分散。
+        </>
+      ) : (
+        <>
+          Keep usage guides, deployment records, and development notes for all projects in one place.
+        </>
+      ),
+    },
+    {
+      title: isZh ? '中英双语支持' : 'Bilingual Support',
+      Svg: require('@site/static/img/undraw_docusaurus_tree.svg').default,
+      description: isZh ? (
+        <>
+          站点支持 <code>zh-CN</code> 与 <code>en</code>，方便不同读者快速查阅。
+        </>
+      ) : (
+        <>
+          The site supports <code>zh-CN</code> and <code>en</code> for different readers.
+        </>
+      ),
+    },
+    {
+      title: isZh ? '持续迭代与归档' : 'Continuous Iteration',
+      Svg: require('@site/static/img/undraw_docusaurus_react.svg').default,
+      description: isZh ? (
+        <>
+          通过 GitHub 持续更新文档，沉淀问题排查经验和版本变更历史。
+        </>
+      ) : (
+        <>
+          Continuously update docs through GitHub and archive troubleshooting experience and release history.
+        </>
+      ),
+    },
+  ];
+}
 
 function Feature({title, Svg, description}: FeatureItem) {
   return (
@@ -57,11 +69,15 @@ function Feature({title, Svg, description}: FeatureItem) {
 }
 
 export default function HomepageFeatures(): ReactNode {
+  const {i18n} = useDocusaurusContext();
+  const isZh = i18n.currentLocale === 'zh-CN';
+  const featureList = getFeatureList(isZh);
+
   return (
     <section className={styles.features}>
       <div className="container">
         <div className="row">
-          {FeatureList.map((props, idx) => (
+          {featureList.map((props, idx) => (
             <Feature key={idx} {...props} />
           ))}
         </div>
@@ -69,3 +85,4 @@ export default function HomepageFeatures(): ReactNode {
     </section>
   );
 }
+

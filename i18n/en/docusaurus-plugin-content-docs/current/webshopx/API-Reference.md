@@ -1,3 +1,7 @@
+﻿---
+sidebar_position: 8
+---
+
 # API Reference
 
 [Back to Home](./Home)
@@ -221,3 +225,4 @@ Content-Type: application/json
 - [Admin Guide](./Admin-Guide)
 - [Market and Pricing](./Market-and-Pricing)
 - [Database Schema](./Database-Schema)
+

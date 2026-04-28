@@ -1,19 +1,14 @@
-facebook:
-  label: Facebook
-  permalink: /facebook
-  description: Facebook tag description
+﻿docs:
+  label: Docs
+  permalink: /docs
+  description: Documentation posts
 
-hello:
-  label: Hello
-  permalink: /hello
-  description: Hello tag description
+projects:
+  label: Projects
+  permalink: /projects
+  description: Project updates and records
 
-docusaurus:
-  label: Docusaurus
-  permalink: /docusaurus
-  description: Docusaurus tag description
-
-hola:
-  label: Hola
-  permalink: /hola
-  description: Hola tag description
+notes:
+  label: Notes
+  permalink: /notes
+  description: Technical notes and learnings

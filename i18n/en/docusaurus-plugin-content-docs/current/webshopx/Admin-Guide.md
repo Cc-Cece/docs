@@ -1,3 +1,7 @@
+﻿---
+sidebar_position: 7
+---
+
 # Admin Guide
 
 [Back to Home](./Home)
@@ -118,3 +122,4 @@ All critical admin actions record operator, action, target, and source IP.
 - [Commands and Permissions](./Commands-and-Permissions)
 - [API Reference](./API-Reference)
 - [Troubleshooting](./Troubleshooting)
+

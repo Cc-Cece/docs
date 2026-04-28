@@ -1,3 +1,7 @@
+﻿---
+sidebar_position: 6
+---
+
 # Market and Pricing
 
 [Back to Home](./Home)
@@ -130,3 +134,4 @@ Seller income is credited after successful trade delivery (not at purchase time)
 - [Player Guide](./Player-Guide)
 - [Admin Guide](./Admin-Guide)
 - [API Reference](./API-Reference)
+

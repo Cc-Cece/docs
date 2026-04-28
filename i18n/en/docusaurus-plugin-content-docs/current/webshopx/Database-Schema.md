@@ -1,3 +1,7 @@
+﻿---
+sidebar_position: 9
+---
+
 # Database Schema
 
 [Back to Home](./Home)
@@ -161,3 +165,4 @@ These constraints ensure retried client requests do not duplicate deduction or c
 - [API Reference](./API-Reference)
 - [Admin Guide](./Admin-Guide)
 - [Troubleshooting](./Troubleshooting)
+

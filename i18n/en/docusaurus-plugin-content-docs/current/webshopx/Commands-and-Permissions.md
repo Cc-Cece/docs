@@ -1,3 +1,7 @@
+﻿---
+sidebar_position: 4
+---
+
 # Commands and Permissions
 
 [Back to Home](./Home)
@@ -116,3 +120,4 @@ Super admins can edit admin accounts, permissions, and templates from the admin 
 - [Player Guide](./Player-Guide)
 - [Admin Guide](./Admin-Guide)
 - [API Reference](./API-Reference)
+

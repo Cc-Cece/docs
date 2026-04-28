@@ -1,3 +1,7 @@
+﻿---
+sidebar_position: 3
+---
+
 # Installation and Deployment
 
 [Back to Home](./Home)
@@ -180,3 +184,4 @@ Recommended in `external` mode:
 - [Configuration Reference](./Configuration-Reference)
 - [Commands and Permissions](./Commands-and-Permissions)
 - [Troubleshooting](./Troubleshooting)
+

@@ -1,3 +1,7 @@
+﻿---
+sidebar_position: 10
+---
+
 # Troubleshooting
 
 [Back to Home](./Home)
@@ -179,3 +183,4 @@ When reporting, include:
 - [Installation and Deployment](./Installation-and-Deployment)
 - [API Reference](./API-Reference)
 - [Database Schema](./Database-Schema)
+

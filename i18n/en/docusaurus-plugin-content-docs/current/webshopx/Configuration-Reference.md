@@ -1,3 +1,7 @@
+﻿---
+sidebar_position: 3
+---
+
 # Configuration Reference
 
 [Back to Home](./Home)
@@ -151,3 +155,4 @@ Current version does not wire Redis into production business flow yet.
 - [Installation and Deployment](./Installation-and-Deployment)
 - [API Reference](./API-Reference)
 - [Troubleshooting](./Troubleshooting)
+

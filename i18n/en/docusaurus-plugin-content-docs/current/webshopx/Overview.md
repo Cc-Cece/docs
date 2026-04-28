@@ -1,3 +1,7 @@
+﻿---
+sidebar_position: 2
+---
+
 # WebShopX Overview
 
 [Back to Home](./Home)
@@ -98,3 +102,4 @@ You do not need to maintain a separate frontend project. The plugin ships with b
 - [API Reference](./API-Reference)
 - [Database Schema](./Database-Schema)
 - [Troubleshooting](./Troubleshooting)
+

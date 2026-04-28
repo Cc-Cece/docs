@@ -1,3 +1,7 @@
+﻿---
+sidebar_position: 5
+---
+
 # Player Guide
 
 [Back to Home](./Home)
@@ -99,3 +103,4 @@ Common reasons:
 - [Commands and Permissions](./Commands-and-Permissions)
 - [Market and Pricing](./Market-and-Pricing)
 - [Troubleshooting](./Troubleshooting)
+
