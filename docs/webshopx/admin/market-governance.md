@@ -1,5 +1,5 @@
 ﻿---
-id: webshopx-admin-market-governance
+id: governance
 title: 市场治理与风控
 sidebar_label: 市场治理与风控
 sidebar_position: 5

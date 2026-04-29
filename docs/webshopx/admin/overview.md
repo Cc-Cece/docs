@@ -1,7 +1,7 @@
 ﻿---
-id: webshopx-admin
-title: WebShopX 服主文档
-sidebar_label: 服主文档
+id: overview
+title: 总览
+sidebar_label: 总览
 sidebar_position: 1
 ---
 
@@ -11,7 +11,7 @@ sidebar_position: 1
 
 :::info[阅读地图]
 1. [安装与部署](./webshopx-admin-install-deploy)
-2. [配置与运行时参数](./webshopx-admin-configuration-runtime)
+2. [配置与运行时参数](./configuration)
 3. [命令与权限体系](./webshopx-admin-commands-permissions)
 4. [市场治理与风控](./webshopx-admin-market-governance)
 5. [发货、领取与退款运维](./webshopx-admin-delivery-refund-ops)
@@ -40,3 +40,4 @@ sidebar_position: 1
 1. 先把“可启动、可登录、可下单”跑通。
 2. 再调费率、限制规则、广播策略。
 3. 最后做高并发与故障场景回归（退款、领取、补货、集群同步）。
+

@@ -1,41 +1,33 @@
 ﻿---
-id: webshopx-player
-title: WebShopX 玩家文档
-sidebar_label: 玩家文档
+id: overview
+title: 总览
+sidebar_label: 总览
 sidebar_position: 1
 ---
 
-# WebShopX 玩家文档
+# 总览
 
-你可以把这套文档当作“从入门到进阶”的操作地图。内容全部以当前源码行为为准。
+这套玩家文档可以当作从入门到进阶的导航图。内容以当前版本功能为准。
 
-:::tip[建议阅读顺序]
-1. [快速上手](./webshopx-player-quick-start)
-2. [钱包与兑换](./webshopx-player-wallet-and-exchange)
-3. [官方商店与订单](./webshopx-player-official-shop-and-orders)
-4. [领取与信箱](./webshopx-player-claim-and-mailbox)
-5. [市场基础概念](./webshopx-player-market-basics)
-6. [市场买卖实战](./webshopx-player-market-buy-sell)
-7. [拍卖系统详解](./webshopx-player-market-auctions)
-8. [动态价格算法](./webshopx-player-dynamic-pricing-algorithms)
-9. [标签与限制规则](./webshopx-player-market-tags-and-limits)
-10. [通知与排行榜](./webshopx-player-notifications-and-leaderboard)
-11. [名词解释](./webshopx-player-glossary)
-12. [常见问题](./webshopx-player-faq)
+:::tip[导读]
+适合普通玩家阅读：功能说明、使用教程、常见问题与术语解释。
 :::
 
-## 一页看懂你要做什么
+## 一页看懂先看哪篇
 
-| 你的目标 | 先看哪一页 | 你会拿到什么 |
+| 你的目标 | 建议先看 | 你会获得什么 |
 | --- | --- | --- |
-| 第一次使用 | [快速上手](./webshopx-player-quick-start) | 账号、密码、会话基础 |
-| 充值/兑换/看余额 | [钱包与兑换](./webshopx-player-wallet-and-exchange) | 双币、汇率、常见报错 |
-| 买官方商品 | [官方商店与订单](./webshopx-player-official-shop-and-orders) | 商品类型、发货模式、退款边界 |
-| 买卖玩家市场 | [市场基础概念](./webshopx-player-market-basics) + [市场买卖实战](./webshopx-player-market-buy-sell) | SELL/BUY 规则与实战路径 |
-| 研究拍卖/动态价 | [拍卖系统详解](./webshopx-player-market-auctions) + [动态价格算法](./webshopx-player-dynamic-pricing-algorithms) | 算法、参数、成交逻辑 |
-| 排查“为什么失败” | [标签与限制规则](./webshopx-player-market-tags-and-limits) + [常见问题](./webshopx-player-faq) | 规则命中与错误码定位 |
+| 第一次使用 | [快速上手](./webshopx-player-quick-start) | 登录、密码、基础操作 |
+| 看余额/充值兑换 | [钱包与兑换](./webshopx-player-wallet-and-exchange) | 双币体系、兑换与常见报错 |
+| 买东西、下单、查订单 | [官方商店、玩家市场与订单](./shop-and-orders) | 购买流程、订单状态、发货与退款 |
+| 领取失败订单或补发物品 | [领取与信箱](./claim-and-mailbox) | `claim` 与信箱领取的正确姿势 |
+| 理解拍卖机制 | [拍卖](./auctions) | 四种拍卖模式与实战差异 |
+| 理解价格变化 | [动态价格](./dynamic-pricing) | 为什么会涨跌、不同算法的体感区别 |
+| 上架被拒/交易失败排查 | [上架限制](./limits) + [常见问题](./faq) | 错误码含义与排查顺序 |
+| 想看机制原理 | [算法](./algorithm) | 动态定价与拍卖机制的底层思路 |
+| 看不懂术语 | [名词解释](./glossary) | 常用词快速对照 |
 
-## 玩家命令速查
+## 常用命令速查
 
 ```text
 /ws help
@@ -54,11 +46,11 @@ sidebar_position: 1
 1. 先在游戏里设置网页密码：`/ws password <新密码>`。
 2. 钱包是双币系统：`SHOP_COIN` 和 `GAME_COIN`。
 3. 自动发货失败会转为 `WAIT_CLAIM`，要手动 `claim`。
-4. 背包放不下会进入游戏信箱，要用 `/ws mailbox claim` 取回。
+4. 背包放不下会进入信箱，要用 `/ws mailbox claim` 取回。
 :::
 
-## 页面导航建议
+## 快速导航建议
 
-- 想快速做交易：直接跳到 [市场买卖实战](./webshopx-player-market-buy-sell)。
-- 想看策略而不是按钮：先读 [拍卖系统详解](./webshopx-player-market-auctions) 和 [动态价格算法](./webshopx-player-dynamic-pricing-algorithms)。
-- 想快速定位术语：打开 [名词解释](./webshopx-player-glossary)。
+- 想尽快完成第一次交易：按 `快速上手 -> 钱包与兑换 -> 官方商店、玩家市场与订单` 阅读。
+- 想减少交易踩坑：优先看 `上架限制` 和 `常见问题`。
+- 想提高交易策略：再看 `拍卖`、`动态价格`、`算法`。

@@ -30,3 +30,4 @@ yarn-error.log*
 .vscode-test/
 .old/
 Docusaurus-Markdown-Showcase.mdx
+docs/webshopx/dev

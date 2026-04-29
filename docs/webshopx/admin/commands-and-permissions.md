@@ -1,5 +1,5 @@
 ﻿---
-id: webshopx-admin-commands-permissions
+id: commands-permissions
 title: 命令与权限体系
 sidebar_label: 命令与权限体系
 sidebar_position: 4

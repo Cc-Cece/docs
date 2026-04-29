@@ -1,11 +1,17 @@
-﻿---
-id: webshopx-player-claim-and-mailbox
+---
+id: claim-and-mailbox
 title: 领取与信箱
 sidebar_label: 领取与信箱
 sidebar_position: 5
 ---
 
 # 领取与信箱
+
+:::warning[]
+
+这不是你的错。本页内容还在评估，功能可能计划更新或移除，固内容仅供参考。
+
+:::
 
 当发货不能即时完成时，你会接触到 `claim` 和 `mailbox` 两条兜底链路。
 

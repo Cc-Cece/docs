@@ -1,5 +1,5 @@
 ﻿---
-id: webshopx-player-glossary
+id: glossary
 title: 名词解释
 sidebar_label: 名词解释
 sidebar_position: 12

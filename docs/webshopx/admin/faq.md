@@ -1,11 +1,11 @@
-﻿---
-id: webshopx-admin-ops-troubleshooting
-title: 运维排障手册
-sidebar_label: 运维排障手册
+---
+id: faq
+title: 常见问题
+sidebar_label: 常见问题
 sidebar_position: 7
 ---
 
-# 运维排障手册
+# 常见问题
 
 ## 1. 插件无法启动
 
@@ -15,16 +15,35 @@ sidebar_position: 7
 
 处理：修改 `database.*` 为真实值。
 
-### 1.2 数据库认证报 RSA/GSSAPI 问题
+### 1.2 RSA 公钥无法获取
 
-现象：日志提示公钥交换或 GSSAPI/SSPI。
+:::tip[提示]
 
-处理方向：
+该问题一般已在v1.1.3版本后修复
 
-- 启用 TLS
-- 开启 `allow-public-key-retrieval`
-- 配置 `server-rsa-public-key-file`
-- 使用密码型 SQL 账户
+:::
+
+现象：启动时出现如下报错
+
+```
+[12:29:17 ERROR]: [WebShopX] WebShopX failed to start
+com.zaxxer.hikari.pool.HikariPool$PoolInitializationException: Failed to initialize pool: RSA public key is not available client side (option serverRsaPublicKeyFile not set)
+...
+```
+
+原因：数据库开启了 `caching_sha2_password` 验证，但 WebShopX 内置驱动在建立安全连接时未能获取服务器公钥。
+
+解决方案：将目标账号改为 `mysql_native_password`（临时，建议更新插件）
+
+```sql
+mysql -u root -p
+
+-- 1. 确保 user_01 使用传统验证方式
+ALTER USER 'user_01'@'localhost' IDENTIFIED WITH mysql_native_password BY 'admin123';
+
+-- 2. 刷新权限
+FLUSH PRIVILEGES;
+```
 
 ## 2. API 正常但页面打不开
 

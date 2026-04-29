@@ -1,5 +1,5 @@
-﻿---
-id: webshopx-admin-install-deploy
+---
+id: install-deploy
 title: 安装与部署
 sidebar_label: 安装与部署
 sidebar_position: 2
@@ -7,67 +7,153 @@ sidebar_position: 2
 
 # 安装与部署
 
-## 1. 前置条件
+## 1. 环境要求
 
 - Java：`21`
-- 服务端：Paper（源码编译目标 API 为 `1.20.6`）
-- 数据库：MySQL/MariaDB
-- 可选依赖：
-  - Vault（用于 `GAME_COIN`）
-  - Redis（集群广播）
+- 服务端：`Paper 1.20.6+`（兼容 Spigot）
+- 数据库：MariaDB / MySQL
+- 可选依赖：Vault（用于 `GAME_COIN` 对接）
 
-## 2. 插件启动流程（源码顺序）
+## 2. 获取插件
 
-`onEnable()` 主要步骤：
+- [modrinth](https://modrinth.com/plugin/webshopx)
+- [minebbs](https://www.minebbs.com/resources/webshopx-minecraft.15688/updates)
 
-1. 更新并加载 `config.yml`
-2. 解析 `PluginSettings`
-3. 初始化数据库连接池并校验/升级表结构
-4. 执行 runtime_config 迁移与默认值注入
-5. 初始化认证、钱包、订单、市场、通知等服务
-6. 注入 bootstrap 管理员（如果启用）
-7. 注册命令与监听器
-8. 启动 delivery/maintenance/market 周期任务
-9. 根据 `cluster.role` 与 `server-mode` 启动 Web/API
+## 3. 部署前准备
 
-## 3. 首次部署最小清单
+1. 已安装数据库。推荐MariaDB：https://mariadb.org/download/
+2. 已下载 WebShopX 插件
+3. 已准备数据库、数据库账户及密码（示例）：
 
-1. 把插件放入 `plugins` 目录并启动一次生成配置。
-2. 修改 `database.*` 为真实连接。
-3. 配置 `webshop.admin-bootstrap.*`（建议只用于首启）。
-4. 重启并检查日志出现 `WebShopX enabled successfully`。
+```yaml
+schema: db_01
+username: user_01
+password: admin123
+```
 
-## 4. 默认数据库占位保护
+## 4. 数据库初始化（首次部署）
 
-若数据库配置仍是以下全默认占位组合，插件会停止启用：
+### (1) 登录数据库
 
-- `host=127.0.0.1`
-- `port=3306`
-- `schema=webshop`
-- `username=webshop`
-- `password=change_me`
+以管理员身份登录：
 
-## 5. server-mode 与 cluster.role
+```text
+mysql -u root -p
+```
 
-### 5.1 `webshop.server-mode`
+### (2) 创建数据库与用户
 
-- `internal`：插件提供 API + 静态页面
-- `external`：插件仅提供 API，静态页由外部托管
+```sql
+-- 1. 创建数据库
+CREATE DATABASE db_01 CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci;
 
-### 5.2 `cluster.role`
+-- 2. 创建用户（允许本地访问）
+CREATE USER 'user_01'@'localhost' IDENTIFIED BY 'admin123';
 
-- `standalone`：启动 Web/API
-- `master`：启动 Web/API
-- `node`：不启动 Web/API
+-- 3. 授予该用户对 db_01 的所有权限
+GRANT ALL PRIVILEGES ON db_01.* TO 'user_01'@'localhost';
 
-## 6. external 模式资源路径
+-- 4. 刷新权限使配置生效
+FLUSH PRIVILEGES;
+```
 
-`server-mode=external` 时，插件仍会导出静态资源到 `embedded-http.static-root` 对应目录，便于 Nginx/CDN 托管。
+> **注意**：如果你的插件运行在 Docker 容器或另一台服务器上，请将 `'localhost'` 改为 `'%'`。
 
-## 7. 数据库连接常见兼容项
+## 5. 首次部署流程
 
-- `database.use-ssl`
-- `database.allow-public-key-retrieval`
-- `database.server-rsa-public-key-file`
+1. 将插件 jar 放入服务器 `plugins/` 目录。
+2. 启动服务器一次，生成默认配置。
+3. 编辑 `plugins/WebShopX/config.yml`，至少修改 `database.*`。
+4. 重启服务器。
+5. 玩家在游戏内执行：
 
-源码会在特定 RSA 公钥场景尝试兼容重连，并在日志给出明确修复建议。
+```text
+/ws password <新密码>
+```
+
+6. 打开玩家端页面：
+
+```text
+http://<host>:8819/
+```
+
+7. 打开后台页面：
+
+```text
+http://<host>:8819/admin.html
+```
+
+:::danger[默认数据库占位会阻止启动]
+
+默认值为：
+
+- `database.host: 127.0.0.1`
+- `database.schema: webshop`
+- `database.username: webshop`
+- `database.password: change_me`
+
+如果保持占位值，插件会拒绝正常启动。
+
+:::
+
+---
+
+### (1) 默认管理员引导账号
+
+`webshop.admin-bootstrap` 默认启用，初始账号：
+
+- 用户名：`admin`
+- 密码：`admin123456`
+
+:::warning[提示]
+
+生产环境务必立即修改或关闭该配置。
+
+:::
+
+### (2) 运行模式选择
+
+#### `internal`（默认）
+
+- 插件同时提供 API 与静态网页。
+- 适合快速上线和测试。
+
+#### `external`
+
+- 插件只提供 API。
+- 静态文件导出到 `plugins/WebShopX/web/`。
+- 可配合 Nginx/CDN 反代。
+
+建议在 `external` 下设置：
+
+- `webshop.api-base-url`
+- 反向代理 HTTPS
+- 合理的缓存与访问控制
+
+## 6. 生产环境安全清单
+
+- 修改数据库账号密码，限制数据库访问来源。
+- 关闭或重置 `admin-bootstrap` 默认管理员。
+- 通过 Nginx / CDN 提供 HTTPS。
+- 仅开放必要端口（默认 8819）。
+- 定期备份数据库与 `plugins/WebShopX` 数据目录。
+- 监控日志目录（`webshop.logging.directory`）。
+
+## 7. 反向代理建议（external 模式）
+
+- 将前端静态资源目录指向导出的 `web` 目录。
+- 将 `/api/` 转发到插件服务地址。
+- 透传 `X-Forwarded-For`，便于审计记录来源 IP。
+
+## 8.升级建议
+
+1. 升级前备份数据库。
+2. 停服。
+3. 移除`web`文件夹。(可选，用于强制更新前端页面)
+4. 替换 jar。
+5. 启动服务器。
+6. 验证以下关键功能：
+   - 登录与会话
+   - 下单与退款
+   - 市场购买/竞拍
+   - 管理后台登录与权限

@@ -1,11 +1,11 @@
-﻿---
-id: webshopx-player-dynamic-pricing-algorithms
-title: 动态价格算法
-sidebar_label: 动态价格算法
-sidebar_position: 9
+---
+id: dynamic-pricing
+title: 动态价格
+sidebar_label: 动态价格
+sidebar_position: 6
 ---
 
-# 动态价格算法
+# 动态价格
 
 本页按源码解释动态价格如何计算、何时变化、为什么会变化。
 
@@ -63,48 +63,40 @@ sidebar_position: 9
 - 每次衰减步长固定 `1`。
 - 调度周期 `6000 ticks`（约 5 分钟，受 TPS 影响）。
 
-## 4. 7 种算法一览
+## 4 页面展示算法解读
 
-令 `B=basePrice`，`D=demandScore`。
+购买时页面上会显示具体算法名。理解它们，有助于你更好判断买入节奏和商机：
 
-| 算法 | 公式 | 默认参数特点 |
-| --- | --- | --- |
-| `LINEAR_DEMAND_V1` | `P = B + k * D` | `k=dynamicPriceStep` |
-| `DIMINISHING_RETURN_V1` | `P = B + a * (D / (1 + b * D))` | `a=step`, `b=0.1` |
-| `LOG_SMOOTH_V1` | `P = B * (1 + alpha * ln(1 + D))` | `alpha=0.05` |
-| `EXPONENTIAL_DEFENSE_V1` | `P = B * exp(min(40, beta * D))` | `beta=0.01` |
-| `THRESHOLD_STEP_V1` | 分段线性（阈值前后斜率不同） | `threshold=20` |
-| `ELASTICITY_V1` | `P = B * ((D + epsilon)/(d0 + epsilon))^eta` | `eta=1`, `epsilon=1`, `d0=1` |
-| `PANIC_BUYING_V1` | `P = B + k*D + gamma*max(0,D-threshold)^2` | `threshold=20`, `gamma=1` |
+- **线性需求** `LINEAR_DEMAND_V1`
+  - **表现**：买得越多，价格越稳步上升，最容易理解。
+  - **常见物品**：基础矿物（铁锭、煤炭）、常见建材（橡木、圆石）。
+- **边际递减** `DIMINISHING_RETURN_V1`
+  - **表现**：刚开始买涨得快，后面涨幅会逐步放缓。
+  - **常见物品**：大型建筑材料（玻璃、石砖、混凝土）、泥土、沙子（买多一点也不会太贵）。
+- **对数平滑** `LOG_SMOOTH_V1`
+  - **表现**：高频买小件物品时，价格变化较温和，不会突然暴涨。
+  - **常见物品**：日常消耗品（面包、烤肉、火把、箭矢）。
+- **指数防护** `EXPONENTIAL_DEFENSE_V1`
+  - **表现**：一次性大额扫货时价格会快速飙升，主要用于防止垄断稀缺物品。
+  - **常见物品**：战略稀缺物资（钻石、下界合金锭、信标、极品附魔书）。
+- **阈值分段** `THRESHOLD_STEP_V1`
+  - **表现**：少量购买时价格几乎不变，超过阈值后会明显涨价。
+  - **常见物品**：功能性道具（潜影壳、经验瓶、末影珍珠、刷怪蛋）。
+- **弹性模型** `ELASTICITY_V1`
+  - **表现**：弹性系数大时价格更平缓；系数小时对购买行为更敏感。
+  - **常见物品**：服务器特殊代币、绿宝石、金锭（更容易受玩法活动影响）。
+- **恐慌抢购** `PANIC_BUYING_V1`
+  - **表现**：当抢购热度超过临界点后，价格会加速上涨。
+  - **常见物品**：节日限定道具、稀有装饰头颅、附魔金苹果。
 
-## 5. 参数别名与兼容点
-
-- `THRESHOLD_STEP_V1`
-  - `threshold` 兼容 `thresholdK`
-  - `k1` 兼容 `k`
-- `ELASTICITY_V1`
-  - `eta` 兼容 `elasticity`
-- `PANIC_BUYING_V1`
-  - `threshold` 兼容 `panicThreshold`
-
-## 6. 容错与回退行为
+## 5. 容错与回退行为
 
 - 算法名无效：回退 `LINEAR_DEMAND_V1`
 - `dynamicParamsJson` 非法：按空对象处理
 - 数值会做非负/正数保护
 - floor > cap：报错（`invalid_dynamic_bounds` 或 `invalid_dynamic_range`）
 
-## 7. 常见报错
-
-- `invalid_dynamic_config`
-- `invalid_dynamic_base`
-- `invalid_dynamic_floor`
-- `invalid_dynamic_cap`
-- `invalid_dynamic_step`
-- `invalid_dynamic_bounds`
-- `invalid_dynamic_range`
-
-## 8. 玩家策略建议
+## 6. 玩家策略建议
 
 1. 交易决策看当前 `price`，不要只看 `dynamicBasePrice`。
 2. 高热度下优先分批买，避免一次把价格推太高。
