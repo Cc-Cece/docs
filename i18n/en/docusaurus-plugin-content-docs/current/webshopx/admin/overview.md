@@ -7,6 +7,10 @@ sidebar_position: 1
 
 # WebShopX Server Owner Docs
 
+## Issue Tracking
+
+- Issues repository: https://github.com/Cc-Cece/WebShopX-Issues
+
 This section is for plugin installers, operators, and admin-panel managers.
 
 :::info[Reading Map]
@@ -40,4 +44,3 @@ This section is for plugin installers, operators, and admin-panel managers.
 1. First, make sure "can start, can log in, can place orders" works.
 2. Then tune fees, limitation rules, and broadcast strategy.
 3. Finally run high-concurrency and failure-scenario regression (refund, claim, restock, cluster sync).
-

@@ -7,6 +7,10 @@ sidebar_position: 1
 
 # WebShopX 服主文档
 
+## 问题反馈
+
+- Issues 仓库：https://github.com/Cc-Cece/WebShopX-Issues
+
 本目录面向插件安装者、运维与后台管理员。
 
 :::info[阅读地图]
@@ -40,5 +44,4 @@ sidebar_position: 1
 1. 先把“可启动、可登录、可下单”跑通。
 2. 再调费率、限制规则、广播策略。
 3. 最后做高并发与故障场景回归（退款、领取、补货、集群同步）。
-
 
