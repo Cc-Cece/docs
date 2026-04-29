@@ -1,4 +1,4 @@
-﻿---
+---
 id: webshopx-dev
 title: WebShopX 开发文档
 sidebar_label: 开发文档

@@ -1,4 +1,4 @@
-﻿---
+---
 id: auctions
 title: 拍卖
 sidebar_label: 拍卖

@@ -1,4 +1,4 @@
-﻿---
+---
 id: webshopx-dev-market-api
 title: 市场 API
 sidebar_label: 市场 API

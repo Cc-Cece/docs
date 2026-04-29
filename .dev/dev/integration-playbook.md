@@ -1,4 +1,4 @@
-﻿---
+---
 id: webshopx-dev-integration-playbook
 title: 接入实施清单
 sidebar_label: 接入实施清单

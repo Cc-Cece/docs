@@ -1,4 +1,4 @@
-﻿---
+---
 id: webshopx-dev-uploads-static
 title: 上传与静态资源
 sidebar_label: 上传与静态资源

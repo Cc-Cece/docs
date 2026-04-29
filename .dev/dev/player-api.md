@@ -1,4 +1,4 @@
-﻿---
+---
 id: webshopx-dev-player-api
 title: 玩家侧 API
 sidebar_label: 玩家侧 API

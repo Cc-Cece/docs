@@ -1,5 +1,5 @@
----
-id: webshopx-player-wallet-and-exchange
+﻿---
+id: wallet-and-exchange
 title: 钱包与兑换
 sidebar_label: 钱包与兑换
 sidebar_position: 3

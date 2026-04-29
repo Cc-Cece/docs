@@ -1,4 +1,4 @@
-﻿---
+---
 id: algorithm
 title: 算法
 sidebar_label: 算法

@@ -1,4 +1,4 @@
-﻿---
+---
 id: webshopx-dev-enums-errors-idempotency
 title: 枚举、错误码与幂等
 sidebar_label: 枚举、错误码与幂等

@@ -1,4 +1,4 @@
-﻿---
+---
 id: webshopx-dev-admin-api
 title: 后台 API
 sidebar_label: 后台 API

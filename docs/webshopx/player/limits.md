@@ -1,4 +1,4 @@
-﻿---
+---
 id: limits
 title: 上架限制
 sidebar_label: 上架限制

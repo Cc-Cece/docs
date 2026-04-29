@@ -1,4 +1,4 @@
-﻿---
+---
 id: webshopx-dev-api-basics
 title: API 基础协议
 sidebar_label: API 基础协议

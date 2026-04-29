@@ -1,4 +1,4 @@
-﻿---
+---
 id: webshopx-dev-auth-session
 title: 认证与会话
 sidebar_label: 认证与会话
