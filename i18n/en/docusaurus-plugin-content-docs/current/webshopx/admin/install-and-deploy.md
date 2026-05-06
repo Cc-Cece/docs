@@ -156,3 +156,19 @@ Recommended settings in `external` mode:
    - Market buy/bid flow
    - Admin panel login and permissions
 
+
+## SQLite Support (New)
+
+WebShopX now supports `database.type=sqlite` for single-node deployment.
+
+### Scope
+
+- Recommended: single server, lightweight deployment, medium traffic.
+- Not recommended: multi-node cluster or heavy write contention.
+
+### Hard Guard
+
+When using SQLite:
+
+- `cluster.role` **must** be `standalone`
+- `master/node` roles are intentionally rejected at startup

@@ -103,3 +103,21 @@ FLUSH PRIVILEGES;
 1. 每日检查后台审计日志异常峰值。
 2. 每日检查 `WAIT_CLAIM` 与 `mailbox` 堆积。
 3. 每次大促前做一次配置快照与回滚预案。
+
+## 9. SQLite 相关常见问题（新增）
+
+### 9.1 为什么 SQLite + master/node 启动失败？
+
+这是设计限制。SQLite 仅支持 `cluster.role=standalone`。
+
+### 9.2 SQLite 出现锁等待怎么办？
+
+建议：
+
+- 开启 `sqlite-journal-mode: WAL`
+- 使用 `sqlite-busy-timeout-ms` 和 `sqlite-max-retries`
+- 保持较小连接池（建议 1~2）
+
+### 9.3 什么时候改用 MySQL/MariaDB？
+
+当你需要跨节点集群或写入冲突明显增多时，应切换到 MySQL/MariaDB。

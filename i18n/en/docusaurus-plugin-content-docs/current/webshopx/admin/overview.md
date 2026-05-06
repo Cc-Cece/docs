@@ -44,3 +44,9 @@ This section is for plugin installers, operators, and admin-panel managers.
 1. First, make sure "can start, can log in, can place orders" works.
 2. Then tune fees, limitation rules, and broadcast strategy.
 3. Finally run high-concurrency and failure-scenario regression (refund, claim, restock, cluster sync).
+
+## SQLite Deployment Scope (New)
+
+- Best for single-node, lightweight deployments.
+- Not suitable for multi-node cluster roles (`master/node`).
+- With SQLite, `cluster.role` must stay `standalone`.

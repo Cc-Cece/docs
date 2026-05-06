@@ -102,3 +102,21 @@ Fix:
 2. Check `WAIT_CLAIM` and `mailbox` backlog daily.
 3. Before major promotions, make a config snapshot and rollback plan.
 
+
+## 9. SQLite FAQ (New)
+
+### 9.1 Why does SQLite fail with `master/node` role?
+
+This is expected by design. SQLite is only supported with `cluster.role=standalone`.
+
+### 9.2 How to reduce SQLite lock contention?
+
+Recommended:
+
+- `sqlite-journal-mode: WAL`
+- configure `sqlite-busy-timeout-ms` and `sqlite-max-retries`
+- keep pool size small (typically 1~2)
+
+### 9.3 When should I move to MySQL/MariaDB?
+
+Switch when you need multi-node cluster mode or when write contention rises significantly.

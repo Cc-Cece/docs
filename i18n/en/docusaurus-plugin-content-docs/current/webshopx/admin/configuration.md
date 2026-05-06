@@ -148,3 +148,18 @@ If you still maintain old versions, these fields may still work. For `1.1.5+`, m
 4. Cluster mode was not enabled accidentally on a single server.
 5. If cross-server broadcast is needed, Redis and channel names are consistent.
 
+
+## SQLite Config Addendum (New)
+
+`database.type` now supports: `mysql | mariadb | sqlite`
+
+SQLite-specific fields:
+
+- `sqlite-file`
+- `sqlite-journal-mode`
+- `sqlite-synchronous`
+- `sqlite-busy-timeout-ms`
+- `sqlite-max-retries`
+- `sqlite-retry-backoff-ms`
+
+Hard limit: when `database.type=sqlite`, `cluster.role` must be `standalone`.

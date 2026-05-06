@@ -148,3 +148,18 @@ redis:
 4. 单服是否误开集群模式。
 5. 需要跨服广播时，Redis 和频道名是否一致。
 
+
+## SQLite 配置补充（新增）
+
+`database.type` 现支持：`mysql | mariadb | sqlite`
+
+SQLite 专用字段：
+
+- `sqlite-file`
+- `sqlite-journal-mode`
+- `sqlite-synchronous`
+- `sqlite-busy-timeout-ms`
+- `sqlite-max-retries`
+- `sqlite-retry-backoff-ms`
+
+重要限制：`database.type=sqlite` 时，`cluster.role` 必须是 `standalone`。

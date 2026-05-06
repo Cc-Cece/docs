@@ -7,6 +7,8 @@ sidebar_position: 2
 
 # 安装与部署
 
+> 新增SQLite模式，该模式无需额外配置但仅支持单服，可直接跳转至第 9 点
+
 ## 1. 环境要求
 
 - Java：`21`
@@ -157,3 +159,39 @@ http://<host>:8819/admin.html
    - 下单与退款
    - 市场购买/竞拍
    - 管理后台登录与权限
+
+## 9. SQLite 单服部署（新增）
+
+WebShopX 已支持 `database.type=sqlite`，适合单服/轻量场景。
+
+### 必须满足
+
+1. `database.type=sqlite`
+2. `cluster.role=standalone`
+
+当 `cluster.role=master` 或 `cluster.role=node` 时，插件会拒绝启动（设计如此）。
+
+该方式无需额外配置。
+
+### 推荐配置
+
+```yaml
+database:
+  type: sqlite
+  sqlite-file: data/webshopx.db
+  sqlite-journal-mode: WAL
+  sqlite-synchronous: NORMAL
+  sqlite-busy-timeout-ms: 5000
+  sqlite-max-retries: 5
+  sqlite-retry-backoff-ms: [10, 50, 100]
+  pool-size: 2
+
+cluster:
+  role: standalone
+```
+
+### 运维建议
+
+- SQLite 适用于单节点，不适合跨节点集群。
+- 高并发写入场景优先选择 MySQL/MariaDB。
+- 备份时请同时备份 SQLite 文件与 `plugins/WebShopX` 数据目录。

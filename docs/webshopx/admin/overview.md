@@ -28,6 +28,7 @@ sidebar_position: 1
 | --- | --- |
 | 插件进程 | 内置 API 服务，可选托管静态页 |
 | MySQL/MariaDB | 核心业务数据存储 |
+| SQLite（新增） | 仅单服模式可用 |
 | Vault（可选） | `GAME_COIN` 经济挂接 |
 | Redis（可选） | 集群配置刷新与市场广播 |
 
@@ -39,9 +40,14 @@ sidebar_position: 1
 3. 开启集群时，`cluster.role=node` 不会启动 Web/API，这是设计行为。
 :::
 
+## SQLite 部署定位（新增）
+
+- 适合：单服、轻量部署。
+- 不适合：多节点集群（master/node）。
+- 若使用 SQLite，`cluster.role` 必须是 `standalone`。
+
 ## 运维节奏建议
 
 1. 先把“可启动、可登录、可下单”跑通。
 2. 再调费率、限制规则、广播策略。
 3. 最后做高并发与故障场景回归（退款、领取、补货、集群同步）。
-
