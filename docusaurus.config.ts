@@ -109,9 +109,9 @@ const config: Config = {
           type: 'docSidebar',
           sidebarId: 'tutorialSidebar',
           position: 'left',
-          label: isZh ? '鏂囨。' : 'Docs',
+          label: isZh ? '文档' : 'Docs',
         },
-        {to: '/blog', label: isZh ? '鍗氬' : 'Blog', position: 'left'},
+        {to: '/blog', label: isZh ? '博客' : 'Blog', position: 'left'},
         {
           type: 'localeDropdown',
           position: 'right',
@@ -127,7 +127,7 @@ const config: Config = {
       style: 'dark',
       links: [
         {
-          title: isZh ? '鏂囨。' : 'Docs',
+          title: isZh ? '文档' : 'Docs',
           items: [
             {
               label: isZh ? '快速开始' : 'Getting Started',
@@ -136,7 +136,7 @@ const config: Config = {
           ],
         },
         {
-          title: isZh ? '绀惧尯' : 'Community',
+          title: isZh ? '社区' : 'Community',
           items: [
             {
               label: 'Stack Overflow',
@@ -153,10 +153,10 @@ const config: Config = {
           ],
         },
         {
-          title: isZh ? '鏇村' : 'More',
+          title: isZh ? '更多' : 'More',
           items: [
             {
-              label: isZh ? '鍗氬' : 'Blog',
+              label: isZh ? '博客' : 'Blog',
               to: '/blog',
             },
             {

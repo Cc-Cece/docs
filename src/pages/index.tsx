@@ -25,7 +25,7 @@ function HomepageHeader() {
         </p>
         <div className={styles.buttons}>
           <Link className="button button--secondary button--lg" to="/intro">
-            {isZh ? '鏌ョ湅鏂囨。鍏ュ彛' : 'Open Docs'}
+            {isZh ? '查看文档入口' : 'Open Docs'}
           </Link>
         </div>
       </div>
