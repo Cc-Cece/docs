@@ -1,4 +1,4 @@
----
+﻿---
 id: overview
 title: Overview
 sidebar_label: Overview
@@ -9,7 +9,7 @@ sidebar_position: 1
 
 ## Issue Tracking
 
-- Issues repository: https://github.com/Cc-Cece/WebShopX-Issues
+- Issues repository: https://github.com/Prism-Committee/WebShopX-Issues
 
 This section is for plugin installers, operators, and admin-panel managers.
 
@@ -50,3 +50,4 @@ This section is for plugin installers, operators, and admin-panel managers.
 - Best for single-node, lightweight deployments.
 - Not suitable for multi-node cluster roles (`master/node`).
 - With SQLite, `cluster.role` must stay `standalone`.
+

@@ -1,4 +1,4 @@
----
+﻿---
 id: algorithm
 title: Algorithm
 sidebar_label: Algorithm
@@ -149,5 +149,6 @@ A: Most likely temporary TPS collapse or OOM paused async refund tasks (`AsyncRe
 WebShopX is continuously improving. If you encounter bugs during deployment or want to collaborate on code:
 
 Submit issues to the official GitHub repository:  
-[WebShopX-Issues](https://github.com/Cc-Cece/WebShopX-Issues)
+[WebShopX-Issues](https://github.com/Prism-Committee/WebShopX-Issues)
+
 

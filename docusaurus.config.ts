@@ -1,4 +1,4 @@
-import {themes as prismThemes} from 'prism-react-renderer';
+﻿import {themes as prismThemes} from 'prism-react-renderer';
 import type {Config} from '@docusaurus/types';
 import type * as Preset from '@docusaurus/preset-classic';
 import { docusaurusVersion } from '@generated/site-metadata';
@@ -8,7 +8,7 @@ import rehypeKatex from 'rehype-katex';
 // This runs in Node.js - Don't use client-side code here (browser APIs, JSX...)
 
 const repository = process.env.GITHUB_REPOSITORY ?? '';
-const repositoryOwner = process.env.GITHUB_REPOSITORY_OWNER ?? 'Cc-Cece';
+const repositoryOwner = process.env.GITHUB_REPOSITORY_OWNER ?? 'Prism-Committee';
 const repositoryName = repository.split('/')[1] ?? 'docs';
 const isUserOrOrgPagesRepo = repositoryName.endsWith('.github.io');
 const githubPagesUrl = `https://${repositoryOwner}.github.io`;
@@ -17,8 +17,8 @@ const currentLocale = process.env.DOCUSAURUS_CURRENT_LOCALE ?? 'zh-CN';
 const isZh = currentLocale === 'zh-CN';
 
 const config: Config = {
-  title: "Cc-Cece's Docs",
-  tagline: 'Projects, notes, and technical documentation by Cc-Cece.',
+  title: "Prism-Committee's Docs",
+  tagline: 'Projects, notes, and technical documentation by Prism-Committee.',
   favicon: 'img/favicon.ico',
 
   // Future flags, see https://docusaurus.io/docs/api/docusaurus-config#future
@@ -27,7 +27,7 @@ const config: Config = {
   },
 
   // Set the production url of your site here
-  url: 'https://blog.akihito.dpdns.org',
+  url: 'https://docs.akihito.dpdns.org',
   // Set the /<baseUrl>/ pathname under which your site is served
   // For GitHub pages deployment, it is often '/<projectName>/'
   baseUrl: '/',
@@ -43,7 +43,7 @@ const config: Config = {
 
   // GitHub pages deployment config.
   // If you aren't using GitHub pages, you don't need these.
-  organizationName: 'Cc-Cece', // Usually your GitHub org/user name.
+  organizationName: 'Prism-Committee', // Usually your GitHub org/user name.
   projectName: 'docs', // Usually your repo name.
 
   onBrokenLinks: 'throw',
@@ -68,7 +68,7 @@ const config: Config = {
           // Please change this to your repo.
           // Remove this to remove the "edit this page" links.
           editUrl:
-            'https://github.com/Cc-Cece/docs/tree/main/',
+            'https://github.com/Prism-Committee/docs/tree/main/',
         },
         blog: {
           showReadingTime: true,
@@ -79,7 +79,7 @@ const config: Config = {
           // Please change this to your repo.
           // Remove this to remove the "edit this page" links.
           editUrl:
-            'https://github.com/Cc-Cece/docs/tree/main/',
+            'https://github.com/Prism-Committee/docs/tree/main/',
           // Useful options to enforce blogging best practices
           onInlineTags: 'warn',
           onInlineAuthors: 'warn',
@@ -99,9 +99,9 @@ const config: Config = {
       respectPrefersColorScheme: true,
     },
     navbar: {
-      title: "Cc-Cece's Docs",
+      title: "Prism-Committee's Docs",
       logo: {
-        alt: "Cc-Cece's Docs Logo",
+        alt: "Prism-Committee's Docs Logo",
         src: "img/logo.svg",
       },
       items: [
@@ -109,15 +109,15 @@ const config: Config = {
           type: 'docSidebar',
           sidebarId: 'tutorialSidebar',
           position: 'left',
-          label: isZh ? '文档' : 'Docs',
+          label: isZh ? '鏂囨。' : 'Docs',
         },
-        {to: '/blog', label: isZh ? '博客' : 'Blog', position: 'left'},
+        {to: '/blog', label: isZh ? '鍗氬' : 'Blog', position: 'left'},
         {
           type: 'localeDropdown',
           position: 'right',
         },
         {
-          href: 'https://github.com/Cc-Cece',
+          href: 'https://github.com/Prism-Committee',
           label: 'GitHub',
           position: 'right',
         },
@@ -127,7 +127,7 @@ const config: Config = {
       style: 'dark',
       links: [
         {
-          title: isZh ? '文档' : 'Docs',
+          title: isZh ? '鏂囨。' : 'Docs',
           items: [
             {
               label: isZh ? '快速开始' : 'Getting Started',
@@ -136,7 +136,7 @@ const config: Config = {
           ],
         },
         {
-          title: isZh ? '社区' : 'Community',
+          title: isZh ? '绀惧尯' : 'Community',
           items: [
             {
               label: 'Stack Overflow',
@@ -153,20 +153,20 @@ const config: Config = {
           ],
         },
         {
-          title: isZh ? '更多' : 'More',
+          title: isZh ? '鏇村' : 'More',
           items: [
             {
-              label: isZh ? '博客' : 'Blog',
+              label: isZh ? '鍗氬' : 'Blog',
               to: '/blog',
             },
             {
               label: 'GitHub',
-              href: 'https://github.com/Cc-Cece',
+              href: 'https://github.com/Prism-Committee',
             },
           ],
         },
       ],
-      copyright: `Copyright © ${new Date().getFullYear()} Cc-Cece`,
+      copyright: `Copyright (c) ${new Date().getFullYear()} Prism-Committee`,
     },
     prism: {
       theme: prismThemes.github,
@@ -176,5 +176,6 @@ const config: Config = {
 };
 
 export default config;
+
 
 

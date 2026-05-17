@@ -1,4 +1,4 @@
----
+﻿---
 id: overview
 title: Overview
 sidebar_label: Overview
@@ -9,7 +9,7 @@ sidebar_position: 1
 
 ## Issue Tracking
 
-- Issues repository: https://github.com/Cc-Cece/WebShopX-Issues
+- Issues repository: https://github.com/Prism-Committee/WebShopX-Issues
 
 This player documentation works as a roadmap from beginner to advanced usage. Content is based on current version behavior.
 
@@ -58,3 +58,4 @@ Great for regular players: feature explanations, usage tutorials, FAQs, and term
 - To finish your first trade quickly: read `Quick Start -> Wallet and Exchange -> Official Shop, Player Market, and Orders`.
 - To reduce trading mistakes: read `Listing Limits` and `FAQ` first.
 - To improve trading strategy: then read `Auctions`, `Dynamic Pricing`, and `Algorithm`.
+
