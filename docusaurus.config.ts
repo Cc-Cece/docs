@@ -102,7 +102,7 @@ const config: Config = {
       title: "Prism-Committee's Docs",
       logo: {
         alt: "Prism-Committee's Docs Logo",
-        src: "img/logo.svg",
+        src: "img/logo.png",
       },
       items: [
         {
@@ -176,6 +176,8 @@ const config: Config = {
 };
 
 export default config;
+
+
 
 
 
